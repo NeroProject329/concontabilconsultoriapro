@@ -115,14 +115,14 @@
   box-shadow: var(--shadow-pop);
 }
 @utility glass {
-  background: oklch(1 0 0 / 0.04);
+  background: oklch(1 0 0 / 0.65);
   backdrop-filter: blur(14px);
-  border: 1px solid oklch(1 0 0 / 0.08);
+  border: 1px solid oklch(0.68 0.10 350 / 0.18);
 }
 @utility grid-pattern {
   background-image:
-    linear-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(1 0 0 / 0.04) 1px, transparent 1px);
+    linear-gradient(oklch(0.68 0.10 350 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.68 0.10 350 / 0.08) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
