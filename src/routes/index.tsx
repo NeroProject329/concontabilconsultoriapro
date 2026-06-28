@@ -9,7 +9,7 @@ import {
   Clock,
   Lock,
   CheckCircle2,
-  TrendingDown,
+  TrendingUp,
   MessageCircle,
   Phone,
   Search,
@@ -26,16 +26,16 @@ import client3 from "@/assets/client-3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vértice — Limpe seu nome com até 95% de desconto" },
+      { title: "Vértice — Consultoria Financeira e Empresarial" },
       {
         name: "description",
         content:
-          "Renegociação de dívidas 100% online. Consultoria gratuita, descontos de até 95% e seu nome limpo em até 48h. Mais de 8 milhões de brasileiros atendidos.",
+          "Consultoria especializada com descontos de até 98%. Atendimento 100% online, equipe qualificada e resultados rápidos para o seu negócio.",
       },
-      { property: "og:title", content: "Vértice — Limpe seu nome hoje" },
+      { property: "og:title", content: "Vértice — Consultoria Financeira" },
       {
         property: "og:description",
-        content: "Renegociação inteligente com descontos de até 95%. Consulta grátis.",
+        content: "Descontos de até 98%. Consultoria 100% online, sem burocracia.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -57,7 +57,7 @@ function useReveal() {
           io.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.12 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -119,7 +119,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 /* ---------- page ---------- */
 function Landing() {
   return (
-    <div className="min-h-screen bg-hero text-foreground">
+    <div className="min-h-screen bg-hero text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
       <Stats />
@@ -137,27 +137,27 @@ function Landing() {
 /* ---------- nav ---------- */
 function Nav() {
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/60 border-b border-border">
-      <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-display font-bold text-xl">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+        <a href="#top" className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl">
+          <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
             V
           </span>
-          <span>
+          <span className="truncate">
             Vértice<span className="text-primary">.</span>
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#why" className="hover:text-foreground transition">Por que nós</a>
+        <nav className="hidden lg:flex items-center gap-8 text-sm text-muted-foreground">
+          <a href="#why" className="hover:text-foreground transition">Diferenciais</a>
           <a href="#process" className="hover:text-foreground transition">Processo</a>
           <a href="#depoimentos" className="hover:text-foreground transition">Depoimentos</a>
           <a href="#contato" className="hover:text-foreground transition">Contato</a>
         </nav>
         <a
           href="#contato"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.03] transition-transform"
+          className="inline-flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-primary px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.03] transition-transform"
         >
-          Fale agora <ArrowRight className="h-4 w-4" />
+          Fale conosco <ArrowRight className="h-4 w-4 hidden sm:block" />
         </a>
       </div>
     </header>
@@ -168,112 +168,110 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      {/* decorative blobs */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-40" />
-      <div className="pointer-events-none absolute -top-32 -left-32 h-[440px] w-[440px] rounded-full bg-accent/30 blur-3xl animate-blob" />
+      <div className="pointer-events-none absolute -top-32 -left-32 h-[340px] w-[340px] sm:h-[440px] sm:w-[440px] rounded-full bg-accent/30 blur-3xl animate-blob" />
       <div
-        className="pointer-events-none absolute -bottom-40 right-0 h-[520px] w-[520px] rounded-full bg-primary/20 blur-3xl animate-blob"
+        className="pointer-events-none absolute -bottom-40 -right-20 h-[380px] w-[380px] sm:h-[520px] sm:w-[520px] rounded-full bg-primary/20 blur-3xl animate-blob"
         style={{ animationDelay: "-6s" }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-24 md:pt-24 md:pb-32 grid md:grid-cols-2 gap-12 items-center">
-        <div>
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 pt-10 pb-16 sm:pt-20 sm:pb-28 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <div className="text-center md:text-left">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-primary">
-              <Sparkles className="h-3.5 w-3.5" /> Renegociação inteligente · 100% online
+            <span className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-medium text-primary">
+              <Sparkles className="h-3.5 w-3.5 shrink-0" /> Consultoria 100% online
             </span>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[1.02]">
-              Limpe seu nome com{" "}
-              <span className="shimmer-text">até 95% OFF</span>
-              <br />
-              <span className="text-muted-foreground text-3xl md:text-5xl">
-                — sem sair de casa.
+            <h1 className="mt-5 font-display text-[2.5rem] leading-[1.05] sm:text-6xl md:text-7xl font-bold tracking-tight">
+              Descontos de até{" "}
+              <span className="shimmer-text">98%</span>
+              <br className="hidden sm:block" />
+              <span className="text-muted-foreground text-2xl sm:text-4xl md:text-5xl block mt-2 sm:mt-3">
+                para transformar sua situação.
               </span>
             </h1>
           </Reveal>
           <Reveal delay={220}>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              A Vértice negocia suas dívidas com os maiores credores do Brasil. Consulta gratuita,
-              proposta em minutos e o seu CPF liberado em até 48 horas.
+            <p className="mt-5 sm:mt-6 mx-auto md:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground">
+              Consultoria especializada com equipe qualificada, processos otimizados e
+              estratégias comprovadas. Atendimento personalizado do início ao resultado.
             </p>
           </Reveal>
           <Reveal delay={320}>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center md:items-start justify-center md:justify-start gap-3">
               <a
                 href="#contato"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow"
+                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow"
               >
                 Consultar agora grátis
                 <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
               </a>
               <a
                 href="#process"
-                className="inline-flex items-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
               >
                 Como funciona
               </a>
             </div>
           </Reveal>
           <Reveal delay={420}>
-            <div className="mt-8 flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex -space-x-3">
+            <div className="mt-7 sm:mt-8 flex items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground">
+              <div className="flex -space-x-3 shrink-0">
                 <img src={client1} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
                 <img src={client2} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
                 <img src={client3} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
               </div>
-              <div>
+              <div className="min-w-0 text-left">
                 <div className="flex items-center gap-1 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
                   <span className="ml-1 font-semibold text-foreground">4.9/5</span>
                 </div>
-                <span>+8 milhões de brasileiros já confiaram</span>
+                <span className="text-xs sm:text-sm">+16 milhões de clientes atendidos</span>
               </div>
             </div>
           </Reveal>
         </div>
 
         {/* hero image */}
-        <Reveal delay={200} className="relative">
-          <div className="relative mx-auto max-w-md">
-            <div className="absolute -inset-6 bg-gradient-accent rounded-[3rem] blur-2xl opacity-50" />
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-pop">
+        <Reveal delay={200} className="relative order-first md:order-last">
+          <div className="relative mx-auto max-w-[18rem] sm:max-w-sm md:max-w-md">
+            <div className="absolute -inset-4 sm:-inset-6 bg-gradient-accent rounded-[2.5rem] sm:rounded-[3rem] blur-2xl opacity-50" />
+            <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-pop">
               <img
                 src={heroPerson}
-                alt="Consultora Vértice apresentando aprovação"
+                alt="Consultora Vértice"
                 width={1024}
                 height={1280}
                 className="w-full h-auto"
               />
             </div>
 
-            {/* floating cards */}
-            <div className="absolute -left-6 top-12 glass rounded-2xl px-4 py-3 shadow-card animate-float">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-success/20 text-success grid place-items-center">
-                  <CheckCircle2 className="h-5 w-5" />
+            <div className="absolute -left-3 sm:-left-6 top-8 sm:top-12 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-xl bg-success/20 text-success grid place-items-center">
+                  <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div className="text-sm">
-                  <div className="font-semibold">CPF liberado</div>
-                  <div className="text-muted-foreground text-xs">há 2 minutos</div>
+                <div className="text-xs sm:text-sm">
+                  <div className="font-semibold">Aprovado</div>
+                  <div className="text-muted-foreground text-[10px] sm:text-xs">há 2 minutos</div>
                 </div>
               </div>
             </div>
 
             <div
-              className="absolute -right-4 bottom-16 glass rounded-2xl px-4 py-3 shadow-card animate-float"
+              className="absolute -right-3 sm:-right-4 bottom-12 sm:bottom-16 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float"
               style={{ animationDelay: "-2s" }}
             >
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-primary/20 text-primary grid place-items-center">
-                  <TrendingDown className="h-5 w-5" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-xl bg-primary/20 text-primary grid place-items-center">
+                  <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div className="text-sm">
-                  <div className="font-semibold">-92% na dívida</div>
-                  <div className="text-muted-foreground text-xs">Banco parceiro</div>
+                <div className="text-xs sm:text-sm">
+                  <div className="font-semibold">+98% economia</div>
+                  <div className="text-muted-foreground text-[10px] sm:text-xs">média do mês</div>
                 </div>
               </div>
             </div>
@@ -282,20 +280,18 @@ function Hero() {
       </div>
 
       {/* logos marquee */}
-      <div className="relative border-y border-border bg-surface/40 py-6 overflow-hidden">
-        <div className="flex gap-16 whitespace-nowrap animate-marquee">
+      <div className="relative border-y border-border bg-surface/40 py-5 sm:py-6 overflow-hidden">
+        <div className="flex gap-10 sm:gap-16 whitespace-nowrap animate-marquee">
           {[...Array(2)].map((_, k) => (
-            <div key={k} className="flex gap-16 px-8 text-muted-foreground/60 font-display font-bold text-2xl">
-              <span>Serasa</span>
-              <span>Itaú</span>
-              <span>Bradesco</span>
-              <span>Santander</span>
-              <span>Caixa</span>
-              <span>Nubank</span>
-              <span>SPC</span>
-              <span>Banco do Brasil</span>
-              <span>Renner</span>
-              <span>C&amp;A</span>
+            <div key={k} className="flex gap-10 sm:gap-16 px-6 sm:px-8 text-muted-foreground/60 font-display font-bold text-lg sm:text-2xl">
+              <span>Parceiro A</span>
+              <span>Grupo B</span>
+              <span>Holding C</span>
+              <span>Instituto D</span>
+              <span>Aliança E</span>
+              <span>Consórcio F</span>
+              <span>Federação G</span>
+              <span>Network H</span>
             </div>
           ))}
         </div>
@@ -307,21 +303,21 @@ function Hero() {
 /* ---------- stats ---------- */
 function Stats() {
   const items = [
-    { v: 8000000, s: "+", label: "Clientes atendidos" },
-    { v: 14, s: "+", label: "Anos no mercado" },
-    { v: 95, s: "%", label: "Desconto médio máximo" },
-    { v: 48, s: "h", label: "Para liberar seu CPF" },
+    { v: 16000000, s: "+", label: "Clientes atendidos" },
+    { v: 12, s: "+", label: "Anos de experiência" },
+    { v: 98, s: "%", label: "Satisfação dos clientes" },
+    { v: 24, s: "h", label: "Tempo médio de resposta" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <section className="mx-auto max-w-7xl px-5 sm:px-6 py-16 sm:py-20">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         {items.map((it, i) => (
           <Reveal key={it.label} delay={i * 80}>
-            <div className="glass rounded-2xl p-6 text-center hover:shadow-glow transition-shadow">
-              <div className="font-display text-4xl md:text-5xl font-bold text-gradient-primary">
+            <div className="glass rounded-2xl p-4 sm:p-6 text-center hover:shadow-glow transition-shadow">
+              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-primary">
                 <Counter to={it.v} suffix={it.s} />
               </div>
-              <div className="mt-2 text-sm text-muted-foreground">{it.label}</div>
+              <div className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{it.label}</div>
             </div>
           </Reveal>
         ))}
@@ -335,45 +331,45 @@ function Why() {
   const items = [
     {
       icon: ShieldCheck,
-      title: "Seguro de ponta a ponta",
-      text: "Somos auditados e seguimos a LGPD. Seus dados ficam protegidos com criptografia bancária.",
+      title: "Confiança e Segurança",
+      text: "Nossa equipe especializada estará sempre ao seu lado para orientá-lo e garantir as melhores decisões.",
     },
     {
       icon: Zap,
-      title: "Proposta em minutos",
-      text: "Nossa IA cruza sua dívida com mais de 200 acordos disponíveis e te entrega o melhor.",
+      title: "Eficiência e Resultados",
+      text: "Processos otimizados e estratégias comprovadas para acelerar o crescimento do seu negócio.",
     },
     {
       icon: Users,
-      title: "Time especialista",
-      text: "Consultores certificados acompanham cada caso. Você fala com gente, não com robôs.",
+      title: "Equipe Especializada",
+      text: "Profissionais experientes e qualificados em diversas áreas de consultoria empresarial.",
     },
     {
       icon: Lock,
-      title: "Sem cobrança antecipada",
-      text: "Você só paga quando o acordo é fechado e o desconto é aprovado por você.",
+      title: "Atendimento Personalizado",
+      text: "Soluções customizadas para atender às necessidades específicas do seu negócio.",
     },
   ];
   return (
-    <section id="why" className="mx-auto max-w-7xl px-6 py-24">
+    <section id="why" className="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-24">
       <Reveal>
-        <div className="max-w-2xl">
-          <span className="text-primary font-semibold tracking-wide text-sm uppercase">
-            Por que a Vértice
+        <div className="max-w-2xl mx-auto md:mx-0 text-center md:text-left">
+          <span className="text-primary font-semibold tracking-wide text-xs sm:text-sm uppercase">
+            Por que escolher nossos serviços
           </span>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
-            Quatro motivos para começar <span className="text-gradient-primary">agora</span>.
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+            Descubra as vantagens de <span className="text-gradient-primary">trabalhar conosco</span>.
           </h2>
         </div>
       </Reveal>
-      <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mt-10 sm:mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {items.map((it, i) => (
           <Reveal key={it.title} delay={i * 100}>
-            <div className="group h-full rounded-3xl glass p-7 hover:-translate-y-1 hover:shadow-glow transition-all duration-300">
+            <div className="group h-full rounded-3xl glass p-6 sm:p-7 hover:-translate-y-1 hover:shadow-glow transition-all duration-300">
               <div className="h-12 w-12 rounded-2xl bg-gradient-primary text-primary-foreground grid place-items-center shadow-glow group-hover:rotate-6 transition-transform">
                 <it.icon className="h-6 w-6" />
               </div>
-              <h3 className="mt-5 font-display text-xl font-bold">{it.title}</h3>
+              <h3 className="mt-5 font-display text-lg sm:text-xl font-bold">{it.title}</h3>
               <p className="mt-2 text-muted-foreground text-sm leading-relaxed">{it.text}</p>
             </div>
           </Reveal>
@@ -386,36 +382,37 @@ function Why() {
 /* ---------- process ---------- */
 function Process() {
   const steps = [
-    { icon: Search, title: "Diagnóstico gratuito", text: "Você nos conta sua situação. Em segundos, mapeamos cada dívida no seu CPF." },
-    { icon: FileText, title: "Estratégia sob medida", text: "Montamos o plano com os credores certos e o desconto máximo possível." },
-    { icon: Handshake, title: "Negociação ativa", text: "Nossos especialistas falam pelos seus interesses até fechar o melhor acordo." },
-    { icon: Trophy, title: "CPF limpo", text: "Acompanhamento total até a baixa nos órgãos de proteção ao crédito." },
+    { icon: Search, title: "Análise e Diagnóstico", text: "Análise completa da sua situação atual, identificando todas as oportunidades disponíveis no mercado." },
+    { icon: FileText, title: "Estratégia e Planejamento", text: "Plano estratégico personalizado com metas claras e cronograma de implementação." },
+    { icon: Handshake, title: "Implementação e Execução", text: "Colocamos em prática as estratégias com acompanhamento constante e ajustes quando necessário." },
+    { icon: Trophy, title: "Resultados e Otimização", text: "Monitoramos os resultados, analisamos o desempenho e implementamos melhorias contínuas." },
   ];
   return (
-    <section id="process" className="relative py-24 bg-surface/40 border-y border-border">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="process" className="relative py-20 sm:py-24 bg-surface/40 border-y border-border">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6">
         <Reveal>
-          <div className="max-w-2xl">
-            <span className="text-primary font-semibold tracking-wide text-sm uppercase">
-              Como funciona
+          <div className="max-w-2xl mx-auto md:mx-0 text-center md:text-left">
+            <span className="text-primary font-semibold tracking-wide text-xs sm:text-sm uppercase">
+              Nosso processo de consultoria
             </span>
-            <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
-              Do "sufoco" ao "respira" em <span className="text-gradient-primary">4 passos</span>.
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+              Uma abordagem estruturada em{" "}
+              <span className="text-gradient-primary">4 etapas</span>.
             </h2>
           </div>
         </Reveal>
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="mt-12 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((s, i) => (
             <Reveal key={s.title} delay={i * 120}>
-              <div className="relative rounded-3xl bg-card border border-border p-7 h-full overflow-hidden hover:shadow-pop transition-shadow">
-                <div className="absolute -right-2 -top-4 font-display text-[7rem] font-extrabold text-primary/10 leading-none select-none">
+              <div className="relative rounded-3xl bg-card border border-border p-6 sm:p-7 h-full overflow-hidden hover:shadow-pop transition-shadow">
+                <div className="absolute -right-2 -top-4 font-display text-[6rem] sm:text-[7rem] font-extrabold text-primary/10 leading-none select-none">
                   0{i + 1}
                 </div>
                 <div className="relative">
                   <div className="h-12 w-12 rounded-2xl bg-accent/20 text-accent grid place-items-center">
                     <s.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="mt-5 font-display text-xl font-bold">{s.title}</h3>
+                  <h3 className="mt-5 font-display text-lg sm:text-xl font-bold">{s.title}</h3>
                   <p className="mt-2 text-muted-foreground text-sm leading-relaxed">{s.text}</p>
                 </div>
               </div>
@@ -430,25 +427,25 @@ function Process() {
 /* ---------- benefits ---------- */
 function Benefits() {
   const items = [
-    { icon: Sparkles, t: "Consulta 100% grátis" },
-    { icon: TrendingDown, t: "Descontos de até 95%" },
-    { icon: Zap, t: "Resposta em minutos" },
-    { icon: ShieldCheck, t: "Dados protegidos por LGPD" },
-    { icon: Clock, t: "CPF liberado em 48h" },
-    { icon: CheckCircle2, t: "Sem burocracia" },
+    { icon: Sparkles, t: "Consulta Grátis" },
+    { icon: TrendingUp, t: "Até 98% OFF" },
+    { icon: Zap, t: "100% Online" },
+    { icon: ShieldCheck, t: "Sem Burocracia" },
+    { icon: Clock, t: "Resultado Rápido" },
+    { icon: CheckCircle2, t: "Seguro e Confiável" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
+    <section className="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-24">
       <Reveal>
-        <h2 className="font-display text-4xl md:text-5xl font-bold max-w-2xl">
-          Tudo que você ganha ao falar com a gente.
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold max-w-2xl mx-auto md:mx-0 text-center md:text-left">
+          Seus benefícios ao escolher a Vértice.
         </h2>
       </Reveal>
-      <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="mt-10 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {items.map((b, i) => (
           <Reveal key={b.t} delay={i * 60}>
-            <div className="flex items-center gap-4 rounded-2xl glass p-5 hover:bg-white/[0.07] transition">
-              <div className="h-11 w-11 rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center">
+            <div className="flex items-center gap-4 rounded-2xl glass p-4 sm:p-5 hover:bg-white/[0.07] transition">
+              <div className="h-11 w-11 shrink-0 rounded-xl bg-gradient-primary text-primary-foreground grid place-items-center">
                 <b.icon className="h-5 w-5" />
               </div>
               <span className="font-semibold">{b.t}</span>
@@ -466,38 +463,38 @@ function Testimonials() {
     {
       img: client1,
       name: "Marina Silva",
-      role: "Empresária · SP",
-      text: "Eu já tinha tentado de tudo. A Vértice fechou minha dívida com 89% de desconto. Em 36 horas meu nome estava limpo.",
+      role: "Empresária",
+      text: "Excelente empresa, atendimento rápido e muito profissional. Recomendo super!",
     },
     {
       img: client2,
       name: "Paulo Roberto",
-      role: "Analista · RJ",
-      text: "Atendimento humano de verdade. Eles explicaram cada etapa e nunca cobraram nada antes de eu aprovar a proposta.",
+      role: "Analista",
+      text: "A consultoria resolveu nossas demandas em tempo recorde. Atendimento excepcional!",
     },
     {
       img: client3,
       name: "Juliana Costa",
-      role: "Autônoma · MG",
-      text: "Saí do vermelho e ainda consegui um cartão novo. Recomendo de olhos fechados para qualquer um que precise respirar.",
+      role: "Autônoma",
+      text: "Resolveram tudo de forma ótima. Empresa séria e confiável, recomendo de olhos fechados!",
     },
   ];
   return (
-    <section id="depoimentos" className="mx-auto max-w-7xl px-6 py-24">
+    <section id="depoimentos" className="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-24">
       <Reveal>
-        <div className="max-w-2xl">
-          <span className="text-primary font-semibold tracking-wide text-sm uppercase">
-            Quem já passou pela Vértice
+        <div className="max-w-2xl mx-auto md:mx-0 text-center md:text-left">
+          <span className="text-primary font-semibold tracking-wide text-xs sm:text-sm uppercase">
+            O que nossos clientes dizem
           </span>
-          <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
-            Histórias reais. Resultados reais.
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+            Histórico de sucesso e satisfação.
           </h2>
         </div>
       </Reveal>
-      <div className="mt-14 grid md:grid-cols-3 gap-6">
+      <div className="mt-10 sm:mt-14 grid md:grid-cols-3 gap-4 sm:gap-6">
         {items.map((t, i) => (
           <Reveal key={t.name} delay={i * 120}>
-            <figure className="h-full rounded-3xl glass p-7 flex flex-col hover:shadow-glow transition-shadow">
+            <figure className="h-full rounded-3xl glass p-6 sm:p-7 flex flex-col hover:shadow-glow transition-shadow">
               <div className="flex items-center gap-1 text-primary">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-current" />
@@ -507,10 +504,10 @@ function Testimonials() {
                 "{t.text}"
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
-                <img src={t.img} loading="lazy" width={48} height={48} className="h-12 w-12 rounded-full object-cover" alt={t.name} />
-                <div>
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                <img src={t.img} loading="lazy" width={48} height={48} className="h-12 w-12 shrink-0 rounded-full object-cover" alt={t.name} />
+                <div className="min-w-0">
+                  <div className="font-semibold truncate">{t.name}</div>
+                  <div className="text-xs text-muted-foreground truncate">{t.role}</div>
                 </div>
               </figcaption>
             </figure>
@@ -524,32 +521,32 @@ function Testimonials() {
 /* ---------- cta ---------- */
 function CTA() {
   return (
-    <section id="contato" className="px-6 py-24">
-      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] p-10 md:p-16 bg-gradient-accent shadow-pop">
-        <div className="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-primary/30 blur-3xl animate-blob" />
-        <div className="absolute -bottom-24 -left-10 h-80 w-80 rounded-full bg-background/30 blur-3xl animate-blob" style={{ animationDelay: "-8s" }} />
+    <section id="contato" className="px-5 sm:px-6 py-20 sm:py-24">
+      <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-7 sm:p-10 md:p-16 bg-gradient-accent shadow-pop">
+        <div className="absolute -top-20 -right-20 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-primary/30 blur-3xl animate-blob" />
+        <div className="absolute -bottom-24 -left-10 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-background/30 blur-3xl animate-blob" style={{ animationDelay: "-8s" }} />
         <Reveal>
-          <h2 className="relative font-display text-4xl md:text-6xl font-bold max-w-3xl">
-            Pronto para fechar essa conta e <span className="shimmer-text">recomeçar</span>?
+          <h2 className="relative font-display text-3xl sm:text-5xl md:text-6xl font-bold max-w-3xl text-center md:text-left">
+            Pronto para transformar sua <span className="shimmer-text">situação</span>?
           </h2>
         </Reveal>
         <Reveal delay={120}>
-          <p className="relative mt-5 max-w-2xl text-lg text-foreground/90">
-            Em menos de 2 minutos você descobre quanto pode economizar. Sem cadastro complicado, sem
-            pegadinhas, sem cobrança antecipada.
+          <p className="relative mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-foreground/90 text-center md:text-left mx-auto md:mx-0">
+            Nossa metodologia comprovada já transformou milhões de histórias. Não perca mais tempo
+            e comece sua jornada de sucesso hoje mesmo.
           </p>
         </Reveal>
         <Reveal delay={220}>
-          <div className="relative mt-10 flex flex-wrap gap-4">
+          <div className="relative mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4">
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform"
             >
-              <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
+              <MessageCircle className="h-5 w-5" /> Falar agora
             </a>
             <a
               href="tel:+5508007770000"
-              className="inline-flex items-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
             >
               <Phone className="h-5 w-5" /> 0800 777 0000
             </a>
@@ -564,7 +561,7 @@ function CTA() {
 function Footer() {
   return (
     <footer className="border-t border-border bg-surface/60">
-      <div className="mx-auto max-w-7xl px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 py-10 sm:py-12 grid sm:grid-cols-3 gap-8 text-sm">
         <div>
           <div className="flex items-center gap-2 font-display font-bold text-xl">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
@@ -573,13 +570,14 @@ function Footer() {
             Vértice<span className="text-primary">.</span>
           </div>
           <p className="mt-3 text-muted-foreground max-w-sm">
-            Consultoria de renegociação de dívidas. Mais leveza no seu CPF, mais espaço no seu mês.
+            Consultoria financeira e empresarial. Estratégias comprovadas para acelerar o
+            crescimento do seu negócio.
           </p>
         </div>
         <div>
           <div className="font-semibold mb-3">Navegação</div>
           <ul className="space-y-2 text-muted-foreground">
-            <li><a href="#why" className="hover:text-foreground">Por que nós</a></li>
+            <li><a href="#why" className="hover:text-foreground">Diferenciais</a></li>
             <li><a href="#process" className="hover:text-foreground">Processo</a></li>
             <li><a href="#depoimentos" className="hover:text-foreground">Depoimentos</a></li>
           </ul>
@@ -588,13 +586,13 @@ function Footer() {
           <div className="font-semibold mb-3">Contato</div>
           <ul className="space-y-2 text-muted-foreground">
             <li>0800 777 0000</li>
-            <li>ola@vertice.com.br</li>
-            <li>Atendimento seg–sáb, 8h–22h</li>
+            <li>contato@vertice.com.br</li>
+            <li>Seg–Sáb, 8h–22h</li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Vértice Consultoria Financeira. Todos os direitos reservados.
+      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground px-5">
+        © {new Date().getFullYear()} Vértice Consultoria. Todos os direitos reservados.
       </div>
     </footer>
   );
@@ -605,8 +603,8 @@ function WhatsFab() {
   return (
     <a
       href="#"
-      aria-label="Falar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-pop animate-pulse-glow hover:scale-110 transition-transform"
+      aria-label="Falar agora"
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-pop animate-pulse-glow hover:scale-110 transition-transform"
     >
       <MessageCircle className="h-7 w-7" />
     </a>
