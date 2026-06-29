@@ -25,13 +25,13 @@ import client3 from "@/assets/client-3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Consultoria — Consultoria Financeira e Empresarial" },
+      { title: "Consultoria Financeira e Empresarial" },
       {
         name: "description",
         content:
           "Consultoria especializada com descontos de até 98%. Atendimento 100% online, equipe qualificada e resultados rápidos para o seu negócio.",
       },
-      { property: "og:title", content: "Consultoria — Consultoria Financeira" },
+      { property: "og:title", content: "Consultoria Financeira" },
       {
         property: "og:description",
         content: "Descontos de até 98%. Consultoria 100% online, sem burocracia.",
@@ -210,7 +210,7 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-pop">
               <img
                 src={heroPerson}
-                alt="Consultora Consultoria"
+                alt="Consultora"
                 width={1024}
                 height={1280}
                 className="w-full h-auto"
@@ -554,7 +554,7 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground px-5">
-        © {new Date().getFullYear()} Consultoria Consultoria. Todos os direitos reservados.
+        © {new Date().getFullYear()} Consultoria. Todos os direitos reservados.
       </div>
     </footer>
   );
