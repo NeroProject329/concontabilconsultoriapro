@@ -25,13 +25,13 @@ import client3 from "@/assets/client-3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vértice — Consultoria Financeira e Empresarial" },
+      { title: "Consultoria — Consultoria Financeira e Empresarial" },
       {
         name: "description",
         content:
           "Consultoria especializada com descontos de até 98%. Atendimento 100% online, equipe qualificada e resultados rápidos para o seu negócio.",
       },
-      { property: "og:title", content: "Vértice — Consultoria Financeira" },
+      { property: "og:title", content: "Consultoria — Consultoria Financeira" },
       {
         property: "og:description",
         content: "Descontos de até 98%. Consultoria 100% online, sem burocracia.",
@@ -112,7 +112,7 @@ function Nav() {
             V
           </span>
           <span className="truncate">
-            Vértice<span className="text-primary">.</span>
+            Consultoria<span className="text-primary">.</span>
           </span>
         </a>
         <nav className="hidden lg:flex items-center gap-8 text-sm text-muted-foreground">
@@ -210,7 +210,7 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-pop">
               <img
                 src={heroPerson}
-                alt="Consultora Vértice"
+                alt="Consultora Consultoria"
                 width={1024}
                 height={1280}
                 className="w-full h-auto"
@@ -406,7 +406,7 @@ function Benefits() {
     <section className="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-24">
       <Reveal>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold max-w-2xl mx-auto md:mx-0 text-center md:text-left">
-          Seus benefícios ao escolher a Vértice.
+          Seus benefícios ao escolher a Consultoria.
         </h2>
       </Reveal>
       <div className="mt-10 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
@@ -529,7 +529,7 @@ function Footer() {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
               V
             </span>
-            Vértice<span className="text-primary">.</span>
+            Consultoria<span className="text-primary">.</span>
           </div>
           <p className="mt-3 text-muted-foreground max-w-sm">
             Consultoria financeira e empresarial. Estratégias comprovadas para acelerar o
@@ -548,13 +548,13 @@ function Footer() {
           <div className="font-semibold mb-3">Contato</div>
           <ul className="space-y-2 text-muted-foreground">
             <li>0800 777 0000</li>
-            <li>contato@vertice.com.br</li>
+            <li>contato@consultoria.com.br</li>
             <li>Seg–Sáb, 8h–22h</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground px-5">
-        © {new Date().getFullYear()} Vértice Consultoria. Todos os direitos reservados.
+        © {new Date().getFullYear()} Consultoria Consultoria. Todos os direitos reservados.
       </div>
     </footer>
   );
