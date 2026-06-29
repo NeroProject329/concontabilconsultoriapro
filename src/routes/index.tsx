@@ -45,49 +45,18 @@ export const Route = createFileRoute("/")({
 /* ---------- helpers ---------- */
 function useReveal() {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return { ref, shown };
+  return { ref, shown: true };
 }
 
 function Reveal({
   children,
-  delay = 0,
   className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
 }) {
-  const { ref, shown } = useReveal();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1)`,
-        transitionDelay: `${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
