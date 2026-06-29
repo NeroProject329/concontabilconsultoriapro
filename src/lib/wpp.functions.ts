@@ -31,7 +31,7 @@ export const getNextWhatsapp = createServerFn({ method: "POST" }).handler(
 
 // ---------- admin: login ----------
 export const adminLogin = createServerFn({ method: "POST" })
-  .inputValidator((d: { email: string; password: string }) => d)
+  .validator((d: { email: string; password: string }) => d)
   .handler(async ({ data }) => {
     const { ADMIN_EMAIL, ADMIN_PASSWORD } = await import("./wpp.server");
     const ok =
@@ -42,7 +42,7 @@ export const adminLogin = createServerFn({ method: "POST" })
 
 // ---------- admin: ler config ----------
 export const getConfig = createServerFn({ method: "POST" })
-  .inputValidator((d: { token: string }) => d)
+  .validator((d: { token: string }) => d)
   .handler(async ({ data }) => {
     if (data.token !== "ok") throw new Error("Unauthorized");
     const { readConfig } = await import("./wpp.server");
@@ -51,7 +51,7 @@ export const getConfig = createServerFn({ method: "POST" })
 
 // ---------- admin: salvar config ----------
 export const saveConfig = createServerFn({ method: "POST" })
-  .inputValidator(
+  .validator(
     (d: {
       token: string;
       attendants: AttendantInput[];
