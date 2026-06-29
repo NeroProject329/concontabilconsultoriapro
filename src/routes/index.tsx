@@ -109,7 +109,7 @@ function Nav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <a href="#top" className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl">
           <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-            V
+            C
           </span>
           <span className="truncate">
             Consultoria<span className="text-primary">.</span>
