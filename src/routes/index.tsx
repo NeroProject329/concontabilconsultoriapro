@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   TrendingUp,
   MessageCircle,
-  Phone,
   Search,
   FileText,
   Handshake,
