@@ -25,13 +25,13 @@ import client3 from "@/assets/client-3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vértice — Consultoria Financeira e Empresarial" },
+      { title: "Consultoria Financeira e Empresarial" },
       {
         name: "description",
         content:
           "Consultoria especializada com descontos de até 98%. Atendimento 100% online, equipe qualificada e resultados rápidos para o seu negócio.",
       },
-      { property: "og:title", content: "Vértice — Consultoria Financeira" },
+      { property: "og:title", content: "Consultoria Financeira" },
       {
         property: "og:description",
         content: "Descontos de até 98%. Consultoria 100% online, sem burocracia.",
@@ -45,49 +45,18 @@ export const Route = createFileRoute("/")({
 /* ---------- helpers ---------- */
 function useReveal() {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return { ref, shown };
+  return { ref, shown: true };
 }
 
 function Reveal({
   children,
-  delay = 0,
   className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
 }) {
-  const { ref, shown } = useReveal();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? "translateY(0)" : "translateY(28px)",
-        transition: `opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1)`,
-        transitionDelay: `${delay}ms`,
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={className}>{children}</div>;
 }
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -140,10 +109,10 @@ function Nav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <a href="#top" className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl">
           <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-            V
+            C
           </span>
           <span className="truncate">
-            Vértice<span className="text-primary">.</span>
+            Consultoria<span className="text-primary">.</span>
           </span>
         </a>
         <nav className="hidden lg:flex items-center gap-8 text-sm text-muted-foreground">
@@ -241,7 +210,7 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-pop">
               <img
                 src={heroPerson}
-                alt="Consultora Vértice"
+                alt="Consultora"
                 width={1024}
                 height={1280}
                 className="w-full h-auto"
@@ -437,7 +406,7 @@ function Benefits() {
     <section className="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-24">
       <Reveal>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold max-w-2xl mx-auto md:mx-0 text-center md:text-left">
-          Seus benefícios ao escolher a Vértice.
+          Seus benefícios ao escolher a Consultoria.
         </h2>
       </Reveal>
       <div className="mt-10 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
@@ -558,9 +527,9 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2 font-display font-bold text-xl">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-              V
+              C
             </span>
-            Vértice<span className="text-primary">.</span>
+            Consultoria<span className="text-primary">.</span>
           </div>
           <p className="mt-3 text-muted-foreground max-w-sm">
             Consultoria financeira e empresarial. Estratégias comprovadas para acelerar o
@@ -579,13 +548,13 @@ function Footer() {
           <div className="font-semibold mb-3">Contato</div>
           <ul className="space-y-2 text-muted-foreground">
             <li>0800 777 0000</li>
-            <li>contato@vertice.com.br</li>
+            <li>contato@consultoria.com.br</li>
             <li>Seg–Sáb, 8h–22h</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-border py-5 text-center text-xs text-muted-foreground px-5">
-        © {new Date().getFullYear()} Vértice Consultoria. Todos os direitos reservados.
+        © {new Date().getFullYear()} Consultoria. Todos os direitos reservados.
       </div>
     </footer>
   );
