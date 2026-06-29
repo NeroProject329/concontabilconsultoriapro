@@ -527,7 +527,7 @@ function Footer() {
         <div>
           <div className="flex items-center gap-2 font-display font-bold text-xl">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-              V
+              C
             </span>
             Consultoria<span className="text-primary">.</span>
           </div>
