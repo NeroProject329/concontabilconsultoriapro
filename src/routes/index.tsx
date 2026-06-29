@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   TrendingUp,
   MessageCircle,
-  Phone,
   Search,
   FileText,
   Handshake,
@@ -303,7 +302,7 @@ function Hero() {
 /* ---------- stats ---------- */
 function Stats() {
   const items = [
-    { v: 16000000, s: "+", label: "Clientes atendidos" },
+    { v: 8000, s: "+", label: "Clientes atendidos" },
     { v: 12, s: "+", label: "Anos de experiência" },
     { v: 98, s: "%", label: "Satisfação dos clientes" },
     { v: 24, s: "h", label: "Tempo médio de resposta" },
@@ -312,8 +311,8 @@ function Stats() {
     <section className="mx-auto max-w-7xl px-5 sm:px-6 py-16 sm:py-20">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
         {items.map((it, i) => (
-          <Reveal key={it.label} delay={i * 80}>
-            <div className="glass rounded-2xl p-4 sm:p-6 text-center hover:shadow-glow transition-shadow">
+          <Reveal key={it.label} delay={i * 80} className="h-full">
+            <div className="glass rounded-2xl p-4 sm:p-6 text-center hover:shadow-glow transition-shadow h-full flex flex-col justify-center">
               <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-primary">
                 <Counter to={it.v} suffix={it.s} />
               </div>
@@ -527,12 +526,12 @@ function CTA() {
         <div className="absolute -bottom-24 -left-10 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-background/30 blur-3xl animate-blob" style={{ animationDelay: "-8s" }} />
         <Reveal>
           <h2 className="relative font-display text-3xl sm:text-5xl md:text-6xl font-bold max-w-3xl text-center md:text-left">
-            Pronto para transformar sua <span className="shimmer-text">situação</span>?
+            Falar <span className="shimmer-text">agora</span>.
           </h2>
         </Reveal>
         <Reveal delay={120}>
           <p className="relative mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-foreground/90 text-center md:text-left mx-auto md:mx-0">
-            Nossa metodologia comprovada já transformou milhões de histórias. Não perca mais tempo
+            Nossa metodologia comprovada já transformou milhares de histórias. Não perca mais tempo
             e comece sua jornada de sucesso hoje mesmo.
           </p>
         </Reveal>
@@ -543,12 +542,6 @@ function CTA() {
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform"
             >
               <MessageCircle className="h-5 w-5" /> Falar agora
-            </a>
-            <a
-              href="tel:+5508007770000"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
-            >
-              <Phone className="h-5 w-5" /> 0800 777 0000
             </a>
           </div>
         </Reveal>
