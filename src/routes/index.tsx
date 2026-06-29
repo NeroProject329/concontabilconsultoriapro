@@ -537,12 +537,12 @@ function CTA() {
         </Reveal>
         <Reveal delay={220}>
           <div className="relative mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4">
-            <a
-              href="#"
+            <button
+              onClick={openWhatsapp}
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform"
             >
               <MessageCircle className="h-5 w-5" /> Falar agora
-            </a>
+            </button>
           </div>
         </Reveal>
       </div>
@@ -594,12 +594,28 @@ function Footer() {
 /* ---------- whatsapp fab ---------- */
 function WhatsFab() {
   return (
-    <a
-      href="#"
+    <button
+      onClick={openWhatsapp}
       aria-label="Falar agora"
       className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-pop animate-pulse-glow hover:scale-110 transition-transform"
     >
       <MessageCircle className="h-7 w-7" />
-    </a>
+    </button>
   );
 }
+
+async function openWhatsapp() {
+  try {
+    const { getNextWhatsapp } = await import("@/lib/wpp.functions");
+    const res = await getNextWhatsapp();
+    if (!res.number) {
+      alert("Nenhum atendente disponível no momento.");
+      return;
+    }
+    const url = `https://wa.me/${res.number}?text=${encodeURIComponent(res.message || "")}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  } catch {
+    alert("Erro ao abrir o WhatsApp. Tente novamente.");
+  }
+}
+
