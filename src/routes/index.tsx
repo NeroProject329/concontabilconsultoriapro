@@ -228,7 +228,7 @@ function Hero() {
                   ))}
                   <span className="ml-1 font-semibold text-foreground">4.9/5</span>
                 </div>
-                <span className="text-xs sm:text-sm">+16 milhões de clientes atendidos</span>
+                <span className="text-xs sm:text-sm">+8 mil clientes atendidos</span>
               </div>
             </div>
           </Reveal>
