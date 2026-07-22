@@ -131,7 +131,7 @@ function Nav() {
   const { loading, open } = useWhatsApp();
 
   const message =
-    "Olá! Gostaria de falar com um especialista da Concontabil Gestao Publica.";
+    "Olá! Gostaria de verificar meus descontos!";
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
@@ -141,11 +141,11 @@ function Nav() {
           className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl"
         >
           <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-            C
+            A
           </span>
 
           <span className="truncate">
-            Consultoria
+            Assessoria & Consultoria
             <span className="text-primary">.</span>
           </span>
         </a>
@@ -202,7 +202,7 @@ function Hero() {
   const { loading, open } = useWhatsApp();
 
   const message =
-    "Olá! Gostaria de fazer uma consulta gratuita com a Contabilidade & Assessoria Empresarial LTDA.";
+    "Olá! Gostaria de verificar meus descontos!";
 
   return (
     <section id="top" className="relative overflow-hidden">
@@ -567,7 +567,7 @@ function CTA() {
   const { loading, open } = useWhatsApp();
 
   const message =
-    "Olá! Quero entender como a Concontabil Gestao Publica pode me ajudar e gostaria de falar com um especialista.";
+    "Olá! Gostaria de verificar meus descontos!";
 
   return (
     <section
@@ -667,7 +667,7 @@ function WhatsFab() {
   const { loading, open } = useWhatsApp();
 
   const message =
-    "Olá! Gostaria de falar com um especialista da Concontabil Gestao Publica.";
+    "Olá! Gostaria de verificar meus descontos!";
 
   return (
     <button
