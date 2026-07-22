@@ -17,6 +17,7 @@ import {
   Trophy,
   Star,
 } from "lucide-react";
+import { useWhatsApp } from "@/components/providers/WhatsAppProvider";
 import heroPerson from "@/assets/hero-person.jpg";
 import client1 from "@/assets/client-1.jpg";
 import client2 from "@/assets/client-2.jpg";
@@ -104,29 +105,69 @@ function Landing() {
 
 /* ---------- nav ---------- */
 function Nav() {
+  const { loading, open } = useWhatsApp();
+
+  const message =
+    "Olá! Gostaria de falar com um especialista da Concontabil Gestao Publica.";
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <a href="#top" className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl">
+        <a
+          href="#top"
+          className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl"
+        >
           <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
             C
           </span>
+
           <span className="truncate">
-            Consultoria<span className="text-primary">.</span>
+            Consultoria
+            <span className="text-primary">.</span>
           </span>
         </a>
+
         <nav className="hidden lg:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#why" className="hover:text-foreground transition">Diferenciais</a>
-          <a href="#process" className="hover:text-foreground transition">Processo</a>
-          <a href="#depoimentos" className="hover:text-foreground transition">Depoimentos</a>
-          <a href="#contato" className="hover:text-foreground transition">Contato</a>
+          <a
+            href="#why"
+            className="hover:text-foreground transition"
+          >
+            Diferenciais
+          </a>
+
+          <a
+            href="#process"
+            className="hover:text-foreground transition"
+          >
+            Processo
+          </a>
+
+          <a
+            href="#depoimentos"
+            className="hover:text-foreground transition"
+          >
+            Depoimentos
+          </a>
+
+          <a
+            href="#contato"
+            className="hover:text-foreground transition"
+          >
+            Contato
+          </a>
         </nav>
-        <a
-          href="#contato"
-          className="inline-flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-primary px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.03] transition-transform"
+
+        <button
+          type="button"
+          onClick={() => open(message)}
+          disabled={loading}
+          aria-busy={loading}
+          className="inline-flex shrink-0 items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-primary px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-glow hover:scale-[1.03] transition-transform disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Fale conosco <ArrowRight className="h-4 w-4 hidden sm:block" />
-        </a>
+          {loading ? "Carregando..." : "Fale conosco"}
+
+          <ArrowRight className="h-4 w-4 hidden sm:block" />
+        </button>
       </div>
     </header>
   );
@@ -134,6 +175,12 @@ function Nav() {
 
 /* ---------- hero ---------- */
 function Hero() {
+
+  const { loading, open } = useWhatsApp();
+
+  const message =
+    "Olá! Gostaria de fazer uma consulta gratuita com a Contabilidade & Assessoria Empresarial LTDA.";
+
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-40" />
@@ -168,13 +215,19 @@ function Hero() {
           </Reveal>
           <Reveal delay={320}>
             <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center md:items-start justify-center md:justify-start gap-3">
-              <a
-                href="#contato"
-                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow"
-              >
-                Consultar agora grátis
-                <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
-              </a>
+              <button
+  type="button"
+  onClick={() => open(message)}
+  disabled={loading}
+  aria-busy={loading}
+  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow disabled:cursor-not-allowed disabled:opacity-70"
+>
+  {loading
+    ? "Carregando..."
+    : "Consultar agora grátis"}
+
+  <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+</button>
               <a
                 href="#process"
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
@@ -488,29 +541,50 @@ function Testimonials() {
 
 /* ---------- cta ---------- */
 function CTA() {
+  const { loading, open } = useWhatsApp();
+
+  const message =
+    "Olá! Quero entender como a Concontabil Gestao Publica pode me ajudar e gostaria de falar com um especialista.";
+
   return (
-    <section id="contato" className="px-5 sm:px-6 py-20 sm:py-24">
+    <section
+      id="contato"
+      className="px-5 sm:px-6 py-20 sm:py-24"
+    >
       <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-7 sm:p-10 md:p-16 bg-gradient-accent shadow-pop">
         <div className="absolute -top-20 -right-20 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-primary/30 blur-3xl animate-blob" />
-        <div className="absolute -bottom-24 -left-10 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-background/30 blur-3xl animate-blob" style={{ animationDelay: "-8s" }} />
+
+        <div
+          className="absolute -bottom-24 -left-10 h-60 w-60 sm:h-80 sm:w-80 rounded-full bg-background/30 blur-3xl animate-blob"
+          style={{ animationDelay: "-8s" }}
+        />
+
         <Reveal>
           <h2 className="relative font-display text-3xl sm:text-5xl md:text-6xl font-bold max-w-3xl text-center md:text-left">
             Falar <span className="shimmer-text">agora</span>.
           </h2>
         </Reveal>
+
         <Reveal delay={120}>
           <p className="relative mt-4 sm:mt-5 max-w-2xl text-base sm:text-lg text-foreground/90 text-center md:text-left mx-auto md:mx-0">
-            Nossa metodologia comprovada já transformou milhares de histórias. Não perca mais tempo
-            e comece sua jornada de sucesso hoje mesmo.
+            Nossa metodologia comprovada já transformou milhares
+            de histórias. Não perca mais tempo e comece sua
+            jornada de sucesso hoje mesmo.
           </p>
         </Reveal>
+
         <Reveal delay={220}>
           <div className="relative mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4">
             <button
-              onClick={openWhatsapp}
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform"
+              type="button"
+              onClick={() => open(message)}
+              disabled={loading}
+              aria-busy={loading}
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground text-background px-7 py-4 text-base font-semibold hover:scale-[1.03] transition-transform disabled:cursor-not-allowed disabled:opacity-70"
             >
-              <MessageCircle className="h-5 w-5" /> Falar agora
+              <MessageCircle className="h-5 w-5" />
+
+              {loading ? "Carregando..." : "Falar agora"}
             </button>
           </div>
         </Reveal>
@@ -518,7 +592,6 @@ function CTA() {
     </section>
   );
 }
-
 /* ---------- footer ---------- */
 function Footer() {
   return (
@@ -529,11 +602,14 @@ function Footer() {
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
               C
             </span>
-            Consultoria<span className="text-primary">.</span>
+            Contabilidade & Assessoria Empresarial LTDA<span className="text-primary">.</span>
           </div>
           <p className="mt-3 text-muted-foreground max-w-sm">
             Consultoria financeira e empresarial. Estratégias comprovadas para acelerar o
             crescimento do seu negócio.
+          </p>
+          <p className="mt-3 text-muted-foreground max-w-sm">
+            CNPJ: 61.283.911/0001-68
           </p>
         </div>
         <div>
@@ -542,14 +618,17 @@ function Footer() {
             <li><a href="#why" className="hover:text-foreground">Diferenciais</a></li>
             <li><a href="#process" className="hover:text-foreground">Processo</a></li>
             <li><a href="#depoimentos" className="hover:text-foreground">Depoimentos</a></li>
+            <li><a href="/politica-de-privacidade" className="hover:text-foreground">Política de Privacidade</a></li>
+            <li><a href="/termos-de-uso" className="hover:text-foreground">Termos de Uso</a></li>
           </ul>
         </div>
         <div>
           <div className="font-semibold mb-3">Contato</div>
           <ul className="space-y-2 text-muted-foreground">
-            <li>0800 777 0000</li>
-            <li>contato@consultoria.com.br</li>
-            <li>Seg–Sáb, 8h–22h</li>
+            <li>Rua Herculano Nunes Teixeira ,105, Casa do Empreendedor Budag</li>
+             <li> Rio do Sul/SC — CEP 89165-478</li>
+            <li>(83) 95217-4587</li>
+            <li>contato@concontabilconsultoria.pro</li>
           </ul>
         </div>
       </div>
@@ -562,29 +641,21 @@ function Footer() {
 
 /* ---------- whatsapp fab ---------- */
 function WhatsFab() {
+  const { loading, open } = useWhatsApp();
+
+  const message =
+    "Olá! Gostaria de falar com um especialista da Concontabil Gestao Publica.";
+
   return (
     <button
-      onClick={openWhatsapp}
-      aria-label="Falar agora"
-      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-pop animate-pulse-glow hover:scale-110 transition-transform"
+      type="button"
+      onClick={() => open(message)}
+      disabled={loading}
+      aria-label="Falar agora pelo WhatsApp"
+      aria-busy={loading}
+      className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-success text-success-foreground shadow-pop animate-pulse-glow hover:scale-110 transition-transform disabled:cursor-not-allowed disabled:opacity-70"
     >
       <MessageCircle className="h-7 w-7" />
     </button>
   );
 }
-
-async function openWhatsapp() {
-  try {
-    const { getNextWhatsapp } = await import("@/lib/wpp.functions");
-    const res = await getNextWhatsapp();
-    if (!res.number) {
-      alert("Nenhum atendente disponível no momento.");
-      return;
-    }
-    const url = `https://wa.me/${res.number}?text=${encodeURIComponent(res.message || "")}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  } catch {
-    alert("Erro ao abrir o WhatsApp. Tente novamente.");
-  }
-}
-
