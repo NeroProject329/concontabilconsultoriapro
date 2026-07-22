@@ -198,7 +198,6 @@ function Nav() {
 
 /* ---------- hero ---------- */
 function Hero() {
-
   const { loading, open } = useWhatsApp();
 
   const message =
@@ -206,127 +205,243 @@ function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden">
+      {/* Background */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-40" />
+
       <div className="pointer-events-none absolute -top-32 -left-32 h-[340px] w-[340px] sm:h-[440px] sm:w-[440px] rounded-full bg-accent/30 blur-3xl animate-blob" />
+
       <div
         className="pointer-events-none absolute -bottom-40 -right-20 h-[380px] w-[380px] sm:h-[520px] sm:w-[520px] rounded-full bg-primary/20 blur-3xl animate-blob"
         style={{ animationDelay: "-6s" }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 pt-10 pb-16 sm:pt-20 sm:pb-28 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 pt-10 pb-14 sm:pt-20 sm:pb-28 grid md:grid-cols-2 gap-9 md:gap-12 items-center">
+        {/* Conteúdo */}
         <div className="text-center md:text-left">
+          {/* Badge apenas tablet/desktop */}
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full glass px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-medium text-primary">
-              <Sparkles className="h-3.5 w-3.5 shrink-0" /> Consultoria 100% online
+            <span className="hidden sm:inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-primary">
+              <Sparkles className="h-3.5 w-3.5 shrink-0" />
+
+              Consultoria 100% online
             </span>
           </Reveal>
-          <Reveal delay={120}>
-            <h1 className="mt-5 font-display text-[2.5rem] leading-[1.05] sm:text-6xl md:text-7xl font-bold tracking-tight">
+
+          {/* Título */}
+          <Reveal delay={100}>
+            <h1 className="font-display text-[2.55rem] leading-[1.03] sm:mt-5 sm:text-6xl md:text-7xl font-bold tracking-tight">
               Descontos de até{" "}
               <span className="shimmer-text">98%</span>
-              <br className="hidden sm:block" />
-              <span className="text-muted-foreground text-2xl sm:text-4xl md:text-5xl block mt-2 sm:mt-3">
+
+              <span className="block mt-2 sm:mt-3 text-2xl leading-tight sm:text-4xl md:text-5xl text-muted-foreground">
                 para transformar sua situação.
               </span>
             </h1>
           </Reveal>
-          <Reveal delay={220}>
-            <p className="mt-5 sm:mt-6 mx-auto md:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground">
+
+          {/* Subtítulo */}
+          <Reveal delay={180}>
+            <p className="mt-5 sm:mt-6 mx-auto md:mx-0 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground">
               Consulte oportunidades e condições exclusivas de atendimento.
             </p>
           </Reveal>
-          <Reveal delay={320}>
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center md:items-start justify-center md:justify-start gap-3">
-              <button
-  type="button"
-  onClick={() => open(message)}
-  disabled={loading}
-  aria-busy={loading}
-  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow disabled:cursor-not-allowed disabled:opacity-70"
->
-  {loading
-    ? "Carregando..."
-    : "Consultar agora grátis"}
 
-  <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
-</button>
+          {/* Botão principal */}
+          <Reveal delay={260}>
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3">
+              <button
+                type="button"
+                onClick={() => open(message)}
+                disabled={loading}
+                aria-busy={loading}
+                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-primary px-7 py-4 text-base font-semibold text-primary-foreground shadow-glow animate-pulse-glow transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {loading
+                  ? "Carregando..."
+                  : "Consultar agora grátis"}
+
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </button>
+
+              {/* No desktop continua ao lado */}
               <a
                 href="#process"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold hover:bg-white/10 transition"
+                className="hidden md:inline-flex items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold transition hover:bg-white/10"
               >
                 Como funciona
               </a>
             </div>
           </Reveal>
-          <Reveal delay={420}>
-            <div className="mt-7 sm:mt-8 flex items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground">
+
+          {/* Avaliações apenas desktop */}
+          <Reveal delay={340}>
+            <div className="mt-8 hidden md:flex items-center justify-start gap-4 text-sm text-muted-foreground">
               <div className="flex -space-x-3 shrink-0">
-                <img src={client1} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
-                <img src={client2} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
-                <img src={client3} className="h-9 w-9 rounded-full border-2 border-background object-cover" alt="" />
+                <img
+                  src={client1}
+                  className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                  alt=""
+                />
+
+                <img
+                  src={client2}
+                  className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                  alt=""
+                />
+
+                <img
+                  src={client3}
+                  className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                  alt=""
+                />
               </div>
+
               <div className="min-w-0 text-left">
                 <div className="flex items-center gap-1 text-primary">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="h-4 w-4 fill-current"
+                    />
                   ))}
-                  <span className="ml-1 font-semibold text-foreground">4.9/5</span>
+
+                  <span className="ml-1 font-semibold text-foreground">
+                    4.9/5
+                  </span>
                 </div>
-                <span className="text-xs sm:text-sm">+8 mil clientes atendidos</span>
+
+                <span>
+                  +8 mil clientes atendidos
+                </span>
               </div>
             </div>
           </Reveal>
         </div>
 
-        {/* hero image */}
-        <Reveal delay={200} className="relative order-first md:order-last">
-          <div className="relative mx-auto max-w-[18rem] sm:max-w-sm md:max-w-md">
+        {/* Mulher */}
+        <Reveal
+          delay={200}
+          className="relative"
+        >
+          <div className="relative mx-auto max-w-[19rem] sm:max-w-sm md:max-w-md">
             <div className="absolute -inset-4 sm:-inset-6 bg-gradient-accent rounded-[2.5rem] sm:rounded-[3rem] blur-2xl opacity-50" />
+
             <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-pop">
               <img
                 src={heroPerson}
                 alt="Consultora"
                 width={1024}
                 height={1280}
-                className="w-full h-auto"
+                className="block w-full h-auto"
               />
             </div>
 
-            <div className="absolute -left-3 sm:-left-6 top-8 sm:top-12 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float">
+            {/* Card esquerdo */}
+            <div className="absolute -left-2 sm:-left-6 top-8 sm:top-12 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float">
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-xl bg-success/20 text-success grid place-items-center">
                   <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div className="text-xs sm:text-sm">
-                  <div className="font-semibold">Aprovado</div>
-                  <div className="text-muted-foreground text-[10px] sm:text-xs">há 2 minutos</div>
+
+                <div className="text-xs sm:text-sm text-left">
+                  <div className="font-semibold">
+                    Aprovado
+                  </div>
+
+                  <div className="text-muted-foreground text-[10px] sm:text-xs">
+                    há 2 minutos
+                  </div>
                 </div>
               </div>
             </div>
 
+            {/* Card direito */}
             <div
-              className="absolute -right-3 sm:-right-4 bottom-12 sm:bottom-16 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float"
+              className="absolute -right-2 sm:-right-4 bottom-10 sm:bottom-16 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-card animate-float"
               style={{ animationDelay: "-2s" }}
             >
               <div className="flex items-center gap-2 sm:gap-3">
                 <div className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-xl bg-primary/20 text-primary grid place-items-center">
                   <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <div className="text-xs sm:text-sm">
-                  <div className="font-semibold">+98% economia</div>
-                  <div className="text-muted-foreground text-[10px] sm:text-xs">média do mês</div>
+
+                <div className="text-xs sm:text-sm text-left">
+                  <div className="font-semibold">
+                    +98% economia
+                  </div>
+
+                  <div className="text-muted-foreground text-[10px] sm:text-xs">
+                    média do mês
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Botão Como funciona abaixo da mulher no mobile */}
+          <div className="mt-7 md:hidden">
+            <a
+              href="#process"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full glass px-7 py-4 text-base font-semibold shadow-card transition hover:bg-white/80"
+            >
+              Como funciona
+
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          {/* Avaliações abaixo de tudo no mobile */}
+          <div className="mt-7 flex md:hidden items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex -space-x-3 shrink-0">
+              <img
+                src={client1}
+                className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                alt=""
+              />
+
+              <img
+                src={client2}
+                className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                alt=""
+              />
+
+              <img
+                src={client3}
+                className="h-9 w-9 rounded-full border-2 border-background object-cover"
+                alt=""
+              />
+            </div>
+
+            <div className="min-w-0 text-left">
+              <div className="flex items-center gap-1 text-primary">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    className="h-4 w-4 fill-current"
+                  />
+                ))}
+
+                <span className="ml-1 font-semibold text-foreground">
+                  4.9/5
+                </span>
+              </div>
+
+              <span className="text-xs">
+                +8 mil clientes atendidos
+              </span>
             </div>
           </div>
         </Reveal>
       </div>
 
-      {/* logos marquee */}
+      {/* Marquee */}
       <div className="relative border-y border-border bg-surface/40 py-5 sm:py-6 overflow-hidden">
         <div className="flex gap-10 sm:gap-16 whitespace-nowrap animate-marquee">
-          {[...Array(2)].map((_, k) => (
-            <div key={k} className="flex gap-10 sm:gap-16 px-6 sm:px-8 text-muted-foreground/60 font-display font-bold text-lg sm:text-2xl">
+          {[...Array(2)].map((_, groupIndex) => (
+            <div
+              key={groupIndex}
+              className="flex gap-10 sm:gap-16 px-6 sm:px-8 text-muted-foreground/60 font-display font-bold text-lg sm:text-2xl"
+            >
               <span>Parceiro A</span>
               <span>Grupo B</span>
               <span>Holding C</span>
