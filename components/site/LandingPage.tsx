@@ -232,8 +232,7 @@ function Hero() {
           </Reveal>
           <Reveal delay={220}>
             <p className="mt-5 sm:mt-6 mx-auto md:mx-0 max-w-xl text-base sm:text-lg text-muted-foreground">
-              Consultoria especializada com equipe qualificada, processos otimizados e
-              estratégias comprovadas. Atendimento personalizado do início ao resultado.
+              Consulte oportunidades e condições exclusivas de atendimento.
             </p>
           </Reveal>
           <Reveal delay={320}>
