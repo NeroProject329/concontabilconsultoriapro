@@ -136,19 +136,19 @@ function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/70 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-14 sm:h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <a
-          href="#top"
-          className="flex min-w-0 items-center gap-2 font-display font-bold text-lg sm:text-xl"
-        >
-          <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
-            A
-          </span>
+<a
+  href="#top"
+  className="flex min-w-0 items-center gap-2 font-display font-bold whitespace-nowrap"
+>
+  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-primary text-primary-foreground">
+    A
+  </span>
 
-          <span className="truncate">
-            Assessoria & Consultoria
-            <span className="text-primary">.</span>
-          </span>
-        </a>
+  <span className="whitespace-nowrap text-[11px] leading-none sm:text-xl sm:leading-normal">
+    Assessoria & Consultoria
+    <span className="text-primary">.</span>
+  </span>
+</a>
 
         <nav className="hidden lg:flex items-center gap-8 text-sm text-muted-foreground">
           <a
